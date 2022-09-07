@@ -9,7 +9,10 @@ using Baisse.Study.ConfigModel;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.common;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Baisse.Study.Common;
 
 namespace Baisse.Study
 {
@@ -19,10 +22,13 @@ namespace Baisse.Study
         static byte[] buffer = new byte[1024];
         private static int count = 0;
         private static IStudyService _iStudyService;
-        public StudyService(AppSettings appSettings)
+        private static ILogger _logger;
+        public StudyService()
         {
-            _appSettings = appSettings;
-            _iStudyService = new StudyServiceImpl();
+            _logger = LogHelp.CreateLogger<StudyService>();
+            _iStudyService = Program._serviceProvider.GetService<IStudyService>();
+            _appSettings = Program._serviceProvider.GetService<AppSettings>();
+            _logger.LogWarning("实例化成功");
         }
 
         protected override void OnStart(string[] args)
@@ -36,6 +42,7 @@ namespace Baisse.Study
 
             //④开始接受客户端连接请求
             socketWatch.BeginAccept(new AsyncCallback(ClientAccepted), socketWatch);
+            _logger.LogWarning("服务启动成功");
         }
 
         protected override void OnStop()

@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "log4net/2.0.13": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/3.1.28": {
         "type": "package",
         "dependencies": {
@@ -103,6 +115,18 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
+      "Microsoft.Extensions.DependencyInjection/3.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.28"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.28": {
         "type": "package",
         "compile": {
@@ -144,6 +168,73 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging/3.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Binder": "3.1.28",
+          "Microsoft.Extensions.DependencyInjection": "3.1.28",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Options": "3.1.28"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.1.28": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Configuration/3.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.28"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Console/3.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Logging.Configuration": "3.1.28"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.18",
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.18",
+          "Microsoft.Extensions.Configuration.Binder": "3.1.18",
+          "Microsoft.Extensions.Logging": "3.1.18",
+          "log4net": "2.0.13"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
         }
       },
       "Microsoft.Extensions.Options/3.1.28": {
@@ -232,6 +323,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "System.Configuration.ConfigurationManager/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Cryptography.ProtectedData": "4.5.0",
+          "System.Security.Permissions": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        }
+      },
       "System.Diagnostics.EventLog/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -275,6 +379,33 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Security.Cryptography.ProtectedData/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Permissions/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       },
       "System.Security.Principal.Windows/5.0.0": {
@@ -330,6 +461,34 @@
     }
   },
   "libraries": {
+    "log4net/2.0.13": {
+      "sha512": "VUx7nr+IovTkL8ZFeKqGtAGCYmzOk1rCvE8NqH2NucZudVb47i99FhwcpTI4UroOBGuUstXCh5F6Zx3/x1nd2w==",
+      "type": "package",
+      "path": "log4net/2.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.13.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
+      ]
+    },
     "Microsoft.AspNetCore.JsonPatch/3.1.28": {
       "sha512": "4jcfdb7oUgWQFTDPZv67G0UBpe9IE7mQR59+kP96kf+uyH48aRwDC4OHnQP5kp7JWWYaRhUGrv8TyUcIMzSp7Q==",
       "type": "package",
@@ -509,6 +668,26 @@
         "microsoft.extensions.configuration.json.nuspec"
       ]
     },
+    "Microsoft.Extensions.DependencyInjection/3.1.28": {
+      "sha512": "lZ/5tLFTbOU/YhWNgtnT884fk4LwsTNXtkTrEZHUVvvvQGNYmseXra69b3RJD3f4UxMWN7Pwf36IA/l8PkNo3g==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection/3.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
+        "microsoft.extensions.dependencyinjection.3.1.28.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.nuspec"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.28": {
       "sha512": "uO7jKl8mfmqp4E7lfHvRwO+n6eb2YZVDzyEgFNXcOavWSxMvU0qBXyzvfpFBLLeAMcubP49dNtx5Gu/yIVdJxg==",
       "type": "package",
@@ -567,6 +746,85 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
         "microsoft.extensions.filesystemglobbing.3.1.28.nupkg.sha512",
         "microsoft.extensions.filesystemglobbing.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging/3.1.28": {
+      "sha512": "HxS9WAlcF45YjpU9OyLZ+PJkvXp+IM29shPO42yEKaarIpRXYTB/MYNMvSW4sZkVHBbeYhE1Wn68GTDntlA3oQ==",
+      "type": "package",
+      "path": "microsoft.extensions.logging/3.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
+        "microsoft.extensions.logging.3.1.28.nupkg.sha512",
+        "microsoft.extensions.logging.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.1.28": {
+      "sha512": "QcCzhUcHiUVR+RZzi4f51e9pDFSBeaypruu3N2+8sv4R9ZDGHeSYMHGzRirlkckNACgOdowYUq5p0wlauz73+w==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/3.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.3.1.28.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Configuration/3.1.28": {
+      "sha512": "VVQP/eiGCuYZgg2CKNJhuT+IHhnv04vHSt+0jT6dX6sZ3ibrojDs+4oAm7voAlw3kQWOhTaNodt8Dv8YrztI1A==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.configuration/3.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Configuration.xml",
+        "microsoft.extensions.logging.configuration.3.1.28.nupkg.sha512",
+        "microsoft.extensions.logging.configuration.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Console/3.1.28": {
+      "sha512": "jsMrM3GkgQwAe3gmqCAv6w6TE1x4YbO5xDGxexSeRH3ddjGpaNwSjKpBorhe4Ymrcm9BO/YyC4vG8EXbzzGo1Q==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.console/3.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.xml",
+        "microsoft.extensions.logging.console.3.1.28.nupkg.sha512",
+        "microsoft.extensions.logging.console.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.1.0": {
+      "sha512": "qHb3GudscgrgEVByh86kAq3FMmjOdPIVoqvff3eokEP+QkZHzr42l4PlgxBsqhhlIX02SazC7ZdbfiFGDPRv9A==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.log4net.aspnetcore/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net5.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "microsoft.extensions.logging.log4net.aspnetcore.6.1.0.nupkg.sha512",
+        "microsoft.extensions.logging.log4net.aspnetcore.nuspec"
       ]
     },
     "Microsoft.Extensions.Options/3.1.28": {
@@ -727,6 +985,27 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
+    "System.Configuration.ConfigurationManager/4.5.0": {
+      "sha512": "UIFvaFfuKhLr9u5tWMxmVoDPkFeD+Qv8gUuap4aZgVGYSYMdERck4OhLN/2gulAc0nYTEigWXSJNNWshrmxnng==",
+      "type": "package",
+      "path": "system.configuration.configurationmanager/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Configuration.ConfigurationManager.dll",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.xml",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Diagnostics.EventLog/6.0.0": {
       "sha512": "lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
       "type": "package",
@@ -801,6 +1080,68 @@
         "runtimes/win/lib/uap10.0.16299/_._",
         "system.security.accesscontrol.5.0.0.nupkg.sha512",
         "system.security.accesscontrol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Cryptography.ProtectedData/4.5.0": {
+      "sha512": "wLBKzFnDCxP12VL9ANydSYhk59fC4cvOr9ypYQLPnAj48NQIhqnjdD2yhP8yEKyBJEjERWS9DisKL7rX5eU25Q==",
+      "type": "package",
+      "path": "system.security.cryptography.protecteddata/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.xml",
+        "ref/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/win/lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+        "system.security.cryptography.protecteddata.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Permissions/4.5.0": {
+      "sha512": "9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
+      "type": "package",
+      "path": "system.security.permissions/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Security.Permissions.dll",
+        "lib/netstandard2.0/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.xml",
+        "ref/netstandard2.0/System.Security.Permissions.dll",
+        "ref/netstandard2.0/System.Security.Permissions.xml",
+        "system.security.permissions.4.5.0.nupkg.sha512",
+        "system.security.permissions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -906,6 +1247,9 @@
       "Microsoft.Extensions.Configuration >= 3.1.28",
       "Microsoft.Extensions.Configuration.FileExtensions >= 3.1.28",
       "Microsoft.Extensions.Configuration.Json >= 3.1.28",
+      "Microsoft.Extensions.DependencyInjection >= 3.1.28",
+      "Microsoft.Extensions.Logging.Console >= 3.1.28",
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 6.1.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 3.1.28",
       "System.ServiceProcess.ServiceController >= 6.0.0"
     ]
@@ -967,6 +1311,18 @@
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[3.1.28, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[3.1.28, )"
+          },
+          "Microsoft.Extensions.Logging.Console": {
+            "target": "Package",
+            "version": "[3.1.28, )"
+          },
+          "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+            "target": "Package",
+            "version": "[6.1.0, )"
           },
           "Microsoft.Extensions.Options.ConfigurationExtensions": {
             "target": "Package",

@@ -43,3 +43,14 @@ D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Newtonsoft
 D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Baisse.StudyCommon.dll
 D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Baisse.StudyCommon.pdb
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\log4net.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\11gitRepertory\Baisse\Service\Baisse.Study\bin\Debug\netcoreapp3.1\log4net.config

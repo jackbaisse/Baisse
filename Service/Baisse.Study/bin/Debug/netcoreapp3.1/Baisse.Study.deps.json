@@ -13,11 +13,25 @@
           "Microsoft.Extensions.Configuration": "3.1.28",
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.28",
           "Microsoft.Extensions.Configuration.Json": "3.1.28",
+          "Microsoft.Extensions.DependencyInjection": "3.1.28",
+          "Microsoft.Extensions.Logging.Console": "3.1.28",
+          "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "6.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.28",
           "System.ServiceProcess.ServiceController": "6.0.0"
         },
         "runtime": {
           "Baisse.Study.dll": {}
+        }
+      },
+      "log4net/2.0.13": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.13.0",
+            "fileVersion": "2.0.13.0"
+          }
         }
       },
       "Microsoft.AspNetCore.JsonPatch/3.1.28": {
@@ -103,6 +117,17 @@
           }
         }
       },
+      "Microsoft.Extensions.DependencyInjection/3.1.28": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.28"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "3.1.28.0",
+            "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.28": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -139,6 +164,68 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
             "assemblyVersion": "3.1.28.0",
             "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/3.1.28": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Binder": "3.1.28",
+          "Microsoft.Extensions.DependencyInjection": "3.1.28",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Options": "3.1.28"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "3.1.28.0",
+            "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.1.28": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "3.1.28.0",
+            "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Configuration/3.1.28": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.28"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {
+            "assemblyVersion": "3.1.28.0",
+            "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Console/3.1.28": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Logging.Configuration": "3.1.28"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll": {
+            "assemblyVersion": "3.1.28.0",
+            "fileVersion": "3.100.2822.36305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.28",
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Configuration.Binder": "3.1.28",
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "log4net": "2.0.13"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.0"
           }
         }
       },
@@ -216,6 +303,18 @@
           }
         }
       },
+      "System.Configuration.ConfigurationManager/4.5.0": {
+        "dependencies": {
+          "System.Security.Cryptography.ProtectedData": "4.5.0",
+          "System.Security.Permissions": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
       "System.Diagnostics.EventLog/6.0.0": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
@@ -260,6 +359,27 @@
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.20.51904"
           }
+        }
+      },
+      "System.Security.Cryptography.ProtectedData/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "System.Security.Permissions/4.5.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "5.0.0"
         }
       },
       "System.Security.Principal.Windows/5.0.0": {
@@ -315,6 +435,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "log4net/2.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VUx7nr+IovTkL8ZFeKqGtAGCYmzOk1rCvE8NqH2NucZudVb47i99FhwcpTI4UroOBGuUstXCh5F6Zx3/x1nd2w==",
+      "path": "log4net/2.0.13",
+      "hashPath": "log4net.2.0.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/3.1.28": {
       "type": "package",
@@ -372,6 +499,13 @@
       "path": "microsoft.extensions.configuration.json/3.1.28",
       "hashPath": "microsoft.extensions.configuration.json.3.1.28.nupkg.sha512"
     },
+    "Microsoft.Extensions.DependencyInjection/3.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lZ/5tLFTbOU/YhWNgtnT884fk4LwsTNXtkTrEZHUVvvvQGNYmseXra69b3RJD3f4UxMWN7Pwf36IA/l8PkNo3g==",
+      "path": "microsoft.extensions.dependencyinjection/3.1.28",
+      "hashPath": "microsoft.extensions.dependencyinjection.3.1.28.nupkg.sha512"
+    },
     "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.28": {
       "type": "package",
       "serviceable": true,
@@ -399,6 +533,41 @@
       "sha512": "sha512-FBRSZSdZl6Xtj2hTJnSCCAVYp/pUi92tbyOuv+VXVWxZMn8MnVlILoj2Nyuy9C7hgsNEgBNFvZCT7xNr6uq62g==",
       "path": "microsoft.extensions.filesystemglobbing/3.1.28",
       "hashPath": "microsoft.extensions.filesystemglobbing.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/3.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HxS9WAlcF45YjpU9OyLZ+PJkvXp+IM29shPO42yEKaarIpRXYTB/MYNMvSW4sZkVHBbeYhE1Wn68GTDntlA3oQ==",
+      "path": "microsoft.extensions.logging/3.1.28",
+      "hashPath": "microsoft.extensions.logging.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QcCzhUcHiUVR+RZzi4f51e9pDFSBeaypruu3N2+8sv4R9ZDGHeSYMHGzRirlkckNACgOdowYUq5p0wlauz73+w==",
+      "path": "microsoft.extensions.logging.abstractions/3.1.28",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Configuration/3.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VVQP/eiGCuYZgg2CKNJhuT+IHhnv04vHSt+0jT6dX6sZ3ibrojDs+4oAm7voAlw3kQWOhTaNodt8Dv8YrztI1A==",
+      "path": "microsoft.extensions.logging.configuration/3.1.28",
+      "hashPath": "microsoft.extensions.logging.configuration.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Console/3.1.28": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jsMrM3GkgQwAe3gmqCAv6w6TE1x4YbO5xDGxexSeRH3ddjGpaNwSjKpBorhe4Ymrcm9BO/YyC4vG8EXbzzGo1Q==",
+      "path": "microsoft.extensions.logging.console/3.1.28",
+      "hashPath": "microsoft.extensions.logging.console.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qHb3GudscgrgEVByh86kAq3FMmjOdPIVoqvff3eokEP+QkZHzr42l4PlgxBsqhhlIX02SazC7ZdbfiFGDPRv9A==",
+      "path": "microsoft.extensions.logging.log4net.aspnetcore/6.1.0",
+      "hashPath": "microsoft.extensions.logging.log4net.aspnetcore.6.1.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/3.1.28": {
       "type": "package",
@@ -449,6 +618,13 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
+    "System.Configuration.ConfigurationManager/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UIFvaFfuKhLr9u5tWMxmVoDPkFeD+Qv8gUuap4aZgVGYSYMdERck4OhLN/2gulAc0nYTEigWXSJNNWshrmxnng==",
+      "path": "system.configuration.configurationmanager/4.5.0",
+      "hashPath": "system.configuration.configurationmanager.4.5.0.nupkg.sha512"
+    },
     "System.Diagnostics.EventLog/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -462,6 +638,20 @@
       "sha512": "sha512-dagJ1mHZO3Ani8GH0PHpPEe/oYO+rVdbQjvjJkBRNQkX4t0r1iaeGn8+/ybkSLEan3/slM0t59SVdHzuHf2jmw==",
       "path": "system.security.accesscontrol/5.0.0",
       "hashPath": "system.security.accesscontrol.5.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.ProtectedData/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wLBKzFnDCxP12VL9ANydSYhk59fC4cvOr9ypYQLPnAj48NQIhqnjdD2yhP8yEKyBJEjERWS9DisKL7rX5eU25Q==",
+      "path": "system.security.cryptography.protecteddata/4.5.0",
+      "hashPath": "system.security.cryptography.protecteddata.4.5.0.nupkg.sha512"
+    },
+    "System.Security.Permissions/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
+      "path": "system.security.permissions/4.5.0",
+      "hashPath": "system.security.permissions.4.5.0.nupkg.sha512"
     },
     "System.Security.Principal.Windows/5.0.0": {
       "type": "package",

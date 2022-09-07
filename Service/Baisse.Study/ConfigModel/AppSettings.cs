@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Baisse.Study.ConfigModel
 {
-    class AppSettings
+    public class AppSettings
     {
         /// <summary>
         /// 服务配置
