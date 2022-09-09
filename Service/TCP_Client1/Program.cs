@@ -2,6 +2,8 @@
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json.Serialization;
+using Baisse.StudyCommon;
+using Baisse.StudyCommon.common;
 using Newtonsoft.Json;
 
 namespace TCP_Client1
@@ -28,6 +30,7 @@ namespace TCP_Client1
                 while (true)
                 {
                     var message = Console.ReadLine();
+
                     message = messagecept(message);
                     var outputBuffer = Encoding.UTF8.GetBytes(message);
                     socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
@@ -43,9 +46,25 @@ namespace TCP_Client1
             }
         }
 
+        public static TResult ExcuteService<TResult>() where TResult : new()
+        {
+            return new TResult();
+        }
+
+
+        public static string Messagec(Func<string, string> func)
+        {
+            return func.Invoke("1");
+        }
+
 
         public static string messagecept(string text)
         {
+            RpcServerContext rpcServer = new RpcServerContext()
+            {
+                LogId = Guid.NewGuid().ToString(),
+                MethodName = "Mcsgd",
+            };
             Istudy istudy = new Istudy()
             {
                 Methon = "Istudy",
@@ -61,16 +80,10 @@ namespace TCP_Client1
                 istudy.name = text;
             }
 
-            string str = JsonConvert.SerializeObject(istudy);
+            rpcServer.Requtst(RequestContent.Request(istudy, "Mcsgd"));
 
-            RpcServerContext context = new RpcServerContext
-            {
-                ClassdName = "Istudy",
-                MethodName = "Abcdd",
-                Body = str
-            };
+            return JsonConvert.SerializeObject(rpcServer);
 
-            return JsonConvert.SerializeObject(context);
         }
 
         /// <summary>

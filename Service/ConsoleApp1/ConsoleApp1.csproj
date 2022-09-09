@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiPageInfo.cs" />
     <Compile Include="Imessage.cs" />
     <Compile Include="Istudy.cs" />
-    <Compile Include="messageImpl.cs" />
     <Compile Include="Ostudy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestContent.cs" />
+    <Compile Include="ResponseContent.cs" />
     <Compile Include="RpcServerContext.cs" />
   </ItemGroup>
   <ItemGroup>

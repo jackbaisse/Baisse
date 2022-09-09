@@ -1,40 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Baisse.Study.BLL;
+using Baisse.Study.Common;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.common;
 using Baisse.StudyCommon.Input;
 using Baisse.StudyCommon.Output;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 namespace Baisse.Study
 {
     public class StudyServiceImpl : IStudyService
     {
+        public ILogger _logger { get; set; }
+        public StudyServiceImpl()
+        {
+            _logger = LogHelp.GetInstance<StudyService>();
+        }
         public void Abcdd(RpcServerContext context)
         {
-            Istudy istudy = JsonConvert.DeserializeObject<Istudy>(context.Body);
-
-            Ostudy ostudy = new Ostudy
+            try
             {
-                msg = istudy.name
-            };
-            context.Return = JsonConvert.SerializeObject(ostudy);
+                var args = context.GetArgs<Istudy>();
+
+                Ostudy ostudy = new Ostudy
+                {
+                    msg = args.name
+                };
+
+                context.Return(ResponseContent.Success(ostudy));
+            }
+            catch (Exception e)
+            {
+                context.Return(ResponseContent.Fail<string>(e.Message));
+            }
         }
+
+
 
         public void Mcsgd(RpcServerContext context)
         {
             try
             {
-                RpcServerContext result = new RpcServerContext();
-                Ostudy ostudy = new Ostudy();
-                ostudy.msg = "成功";
+                _logger.LogWarning("Mcsgd" + context.LogId);
+                var args = context.GetArgs<Istudy>();
 
-                context.Return = JsonConvert.SerializeObject(ostudy);
+                StudyInfoBLL.SelectInfo(args);
+
+
+                Ostudy ostudy = new Ostudy
+                {
+                    msg = args.name
+                };
+
+                context.Return(ResponseContent.Success(ostudy));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                context.Return = "失败";
+                context.Return(ResponseContent.Fail<string>(e.Message));
             }
         }
     }

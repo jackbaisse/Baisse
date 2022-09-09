@@ -6,13 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Baisse.Study.Common
 {
-    public static class LogHelp
+    public class LogHelp
     {
-        public static ILogger CreateLogger<T>()
-        {
-            var logger = Program._serviceProvider.GetService<ILoggerFactory>().CreateLogger<T>();
-            return logger;
-        }
+        public static string LogId { get; set; }
 
+        public static ILogger GetInstance<T>()
+        {
+            return Program._serviceProvider.GetService<ILoggerFactory>().CreateLogger<T>();
+        }
     }
 }

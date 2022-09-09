@@ -424,6 +424,9 @@
         }
       },
       "Baisse.StudyCommon/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.28"
+        },
         "runtime": {
           "Baisse.StudyCommon.dll": {}
         }

@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "KGd/vPvPRrrFLXi0HuXiZJTeAwOWskelpxC4AyKzZZhGnBFTlTwOL8ux5WRpkAPrOEnyJ1+LN17F5RLAykR9AQ==",
+  "dgSpecHash": "71OgkD+DCuFJcmDk87ff48apu4gImRgi4HoQUMhx5ltiCOIpz7d7ukxb+9wyb18ask14G+6uicDCbIfdblbpmQ==",
   "success": true,
   "projectFilePath": "D:\\11gitRepertory\\Baisse\\Service\\TCP_Client1\\TCP_Client1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jackbaisse\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\jackbaisse\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.28\\microsoft.aspnetcore.jsonpatch.3.1.28.nupkg.sha512",
+    "C:\\Users\\jackbaisse\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.28\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.28.nupkg.sha512",
+    "C:\\Users\\jackbaisse\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\jackbaisse\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\jackbaisse\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

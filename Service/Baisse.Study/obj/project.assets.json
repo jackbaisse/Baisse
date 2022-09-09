@@ -451,12 +451,18 @@
       "Baisse.StudyCommon/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.28"
+        },
         "compile": {
           "bin/placeholder/Baisse.StudyCommon.dll": {}
         },
         "runtime": {
           "bin/placeholder/Baisse.StudyCommon.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

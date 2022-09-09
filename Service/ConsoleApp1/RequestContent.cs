@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp1
+{
+    public class RequestContent<T>
+    {
+        /// <summary>
+        /// 请求日志id
+        /// </summary>
+        public string LogId { get; set; }
+        /// <summary>
+        /// 请求内容
+        /// </summary>
+        public T Data { get; set; }
+
+    }
+
+    public class RequestContent
+    {
+        public static RequestContent<T> Request<T>(T data)
+            => new RequestContent<T>() { Data = data};
+    }
+}

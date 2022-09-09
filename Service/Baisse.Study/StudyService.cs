@@ -8,7 +8,6 @@ using System.Text;
 using Baisse.Study.ConfigModel;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.common;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -25,7 +24,7 @@ namespace Baisse.Study
         private static ILogger _logger;
         public StudyService()
         {
-            _logger = LogHelp.CreateLogger<StudyService>();
+            _logger = LogHelp.GetInstance<StudyService>();
             _iStudyService = Program._serviceProvider.GetService<IStudyService>();
             _appSettings = Program._serviceProvider.GetService<AppSettings>();
             _logger.LogWarning("实例化成功");
@@ -121,7 +120,7 @@ namespace Baisse.Study
             //object obj = Activator.CreateInstance(t, new object[] { _connectionString });//创建一个obj对象
             MethodInfo mi = t.GetMethod(istudy.MethodName);
             mi.Invoke(_iStudyService, new object[] { istudy });
-            return istudy.Return;
+            return istudy.ResponseData;
         }
     }
 }
