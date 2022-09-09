@@ -19,3 +19,7 @@ Service/Baisse.Study/obj/Baisse.Study.csproj.nuget.dgspec.json
 Service/Baisse.Study/obj/project.nuget.cache
 *.cache
 Service/Baisse.Study/obj/project.assets.json
+*.dll
+*.pdb
+*.dll
+*.pdb

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json.Serialization;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.common;
+using Baisse.StudyCommon.Input;
 using Newtonsoft.Json;
 
 namespace TCP_Client1
@@ -15,26 +17,51 @@ namespace TCP_Client1
         {
             try
             {
-                //①创建一个Socket
-                var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-                //②连接到指定服务器的指定端口
-                socket.Connect("127.0.0.1", 5959); //localhost代表本机
-
-                WriteLine("client:connect to server success!", ConsoleColor.White);
-
-                //③实现异步接受消息的方法 客户端不断监听消息
-                socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
-
-                //④接受用户输入，将消息发送给服务器端
-                while (true)
+                RpcServerContext rpcServer = new RpcServerContext()
                 {
-                    var message = Console.ReadLine();
+                    LogId = Guid.NewGuid().ToString(),
+                    MethodName = "Mcsgd",
+                };
+                Istudy istudy = new Istudy()
+                {
+                    Methon = "Istudy",
+                    MethonName = "Mcsgd",
+                    address = "wxfk",
+                    age = "18",
+                    id = "1",
+                    name = "张三"
+                };
+                StudyClass studyClass = new StudyClass();
 
-                    message = messagecept(message);
-                    var outputBuffer = Encoding.UTF8.GetBytes(message);
-                    socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
-                }
+                //studyClass.Studyss(rpcServer, (x) =>
+                //{
+                //    return istudy;
+                //});
+
+                var a = studyClass.Studyss5(rpcServer, istudy);
+
+
+                ////①创建一个Socket
+                //var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+                ////②连接到指定服务器的指定端口
+                //socket.Connect("127.0.0.1", 5959); //localhost代表本机
+
+                //WriteLine("client:connect to server success!", ConsoleColor.White);
+
+                ////③实现异步接受消息的方法 客户端不断监听消息
+                //socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
+
+                ////④接受用户输入，将消息发送给服务器端
+                //while (true)
+                //{
+                //    var message = Console.ReadLine();
+
+                //    message = messagecept(message);
+                //    var outputBuffer = Encoding.UTF8.GetBytes(message);
+                //    socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
+                //}
             }
             catch (Exception ex)
             {
@@ -51,11 +78,6 @@ namespace TCP_Client1
             return new TResult();
         }
 
-
-        public static string Messagec(Func<string, string> func)
-        {
-            return func.Invoke("1");
-        }
 
 
         public static string messagecept(string text)
@@ -80,9 +102,39 @@ namespace TCP_Client1
                 istudy.name = text;
             }
 
+            //k.Methon = "Istudy";
+            //k.MethonName = "Mcsgd";
+            //k.address = "wxfk";
+            //k.age = "18";
+            //k.id = "1";
+            //k.name = "张三";
+
+            StudyClass studyClass = new StudyClass();
+
+            studyClass.Studys(rpcServer, (k) =>
+            {
+                k.Methon = "Istudy";
+                k.MethonName = "Mcsgd";
+                k.address = "wxfk";
+                k.age = "18";
+                k.id = "1";
+                k.name = "张三";
+            });
+
+            studyClass.Studyss(rpcServer, (x) =>
+            {
+                return istudy;
+            });
+
+
             rpcServer.Requtst(RequestContent.Request(istudy, "Mcsgd"));
 
             return JsonConvert.SerializeObject(rpcServer);
+
+        }
+
+        public void aaa(Baisse.StudyCommon.Input.Istudy b)
+        {
 
         }
 

@@ -58,8 +58,8 @@ namespace Baisse.StudyCommon.common
         /// <remarks>返回null等同于无参数返回</remarks>
         public T GetArgs<T>()
         {
-            var args = JsonConvert.DeserializeObject<RequestContent<T>>(RequestData);
-            return args.Data;
+            var args = JsonConvert.DeserializeObject<T>(RequestData);
+            return args;
         }
 
     }

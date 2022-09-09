@@ -119,8 +119,8 @@ namespace Baisse.Study
             Type t = _iStudyService.GetType();
             //object obj = Activator.CreateInstance(t, new object[] { _connectionString });//创建一个obj对象
             MethodInfo mi = t.GetMethod(istudy.MethodName);
-            mi.Invoke(_iStudyService, new object[] { istudy });
-            return istudy.ResponseData;
+            var inc = mi.Invoke(_iStudyService, new object[] { istudy, null });
+            return JsonConvert.SerializeObject(inc);
         }
     }
 }

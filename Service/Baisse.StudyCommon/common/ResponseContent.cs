@@ -18,7 +18,7 @@ namespace Baisse.StudyCommon.common
     public class ResponseContent
     {
         public static ResponseContent<T> Success<T>(T data)
-            => new ResponseContent<T>() { Success = true, Data = data, Code = "200" };
+            => new ResponseContent<T>() { Success = true, Data = data, Code = "200", Message = "成功" };
 
         public static ResponseContent<T> Success<T>(T data, int totalCount)
             => new ResponseContent<T>() { Success = true, Data = data, TotalCount = totalCount };
