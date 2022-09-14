@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.common;
 using Baisse.StudyCommon.Input;
@@ -11,83 +12,36 @@ namespace TCP_Client1
 {
     public class StudyClass : IStudyService
     {
-        public void Abcdd(Baisse.StudyCommon.common.RpcServerContext context)
+        private RPCConnectClient RPCConnect = new RPCConnectClient("127.0.0.1", 5959);
+        public ResponseContent<Ostudy> Studyss1(RpcServerContext context, Istudy args)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Mcsgd(Baisse.StudyCommon.common.RpcServerContext context)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Studys(RpcServerContext context, Action<Baisse.StudyCommon.Input.Istudy> action)
-        {
-            action.Invoke(new Istudy());
+            context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            string json = JsonConvert.SerializeObject(context);
+            return RPCConnect.ConnectService<RpcServerContext, ResponseContent<Ostudy>>(context);
         }
 
-        public void Studyss(RpcServerContext context, Func<RpcServerContext, Baisse.StudyCommon.Input.Istudy> func = null)
+        public ResponseContent<Ostudy> Studyss2(RpcServerContext context, Istudy args)
         {
-            //RPCClient rpc = new RPCClient();
-
-            //var a = func.Invoke(new RpcServerContext());
-            //context.RequestData = JsonConvert.SerializeObject(a);
-            //context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            //string data = JsonConvert.SerializeObject(context);
-
-            //func = (x) =>
-            //{
-            //    context.ResponseData = rpc.ConnectService(data).ResponseData;
-
-            //    RequestContent<Ostudy> ostudy = JsonConvert.DeserializeObject<RequestContent<Ostudy>>(context.ResponseData);
-
-            //    return null;
-            //};
-
-            //var a1 = func.Invoke(context);
-
+            context.RequestData = JsonConvert.SerializeObject(args);
+            context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            return RPCConnect.ConnectService<RpcServerContext, ResponseContent<Ostudy>>(context);
         }
 
-        public void Inveok<T>()
+        public ResponseContent<Ostudy> Studyss5(RpcServerContext context, Istudy args)
         {
-
+            context.RequestData = JsonConvert.SerializeObject(args);
+            context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            return RPCConnect.ConnectService<RpcServerContext, ResponseContent<Ostudy>>(context);
         }
 
-        public void Studyss1(RpcServerContext context, Func<Istudy, RpcServerContext> func = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Ostudy Studyss2(RpcServerContext context, Func<Istudy, RpcServerContext> func = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Ostudy Studyss3(RpcServerContext context, Istudy istudy = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Ostudy Studyss3(RpcServerContext context, Action<Istudy> action)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResponseContent<Ostudy> Studyss4(RpcServerContext context, Action<Istudy> action)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResponseContent<Ostudy> Studyss5(RpcServerContext context, Istudy istudy)
+        public async Task<ResponseContent<Ostudy>> Studyss6(RpcServerContext context, Istudy args)
         {
             RPCClient rpc = new RPCClient();
-            context.RequestData = JsonConvert.SerializeObject(istudy);
+            context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
             string data = JsonConvert.SerializeObject(context);
-            string result = rpc.ConnectService(data);
-            ResponseContent<Ostudy> ostudy = JsonConvert.DeserializeObject<ResponseContent<Ostudy>>(result);
+            await rpc.ConnectServiceAsync(data);
+            ResponseContent<Ostudy> ostudy = JsonConvert.DeserializeObject<ResponseContent<Ostudy>>("");
             return ostudy;
         }
     }

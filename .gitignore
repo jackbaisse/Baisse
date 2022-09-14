@@ -23,3 +23,6 @@ Service/Baisse.Study/obj/project.assets.json
 *.pdb
 *.dll
 *.pdb
+*.log
+*.log
+Service/Baisse.Study/bin/Debug/netcoreapp3.1/log/2022-09-09.log

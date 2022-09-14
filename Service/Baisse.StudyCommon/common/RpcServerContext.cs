@@ -45,7 +45,7 @@ namespace Baisse.StudyCommon.common
         /// <typeparam name="T">参数类型</typeparam>
         /// <param name="results">返回参数</param>
         /// <remarks>返回null等同于无参数返回</remarks>
-        public void Requtst<T>(RequestContent<T> results)
+        public void Requtst<T>(T results)
         {
             RequestData = JsonConvert.SerializeObject(results);
         }

@@ -3,67 +3,51 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
-using System.ServiceProcess;
 using System.Text;
-using Baisse.Study.ConfigModel;
-using Baisse.StudyCommon;
-using Baisse.StudyCommon.common;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Baisse.Study.Common;
 
-namespace Baisse.Study
+namespace Baisse.StudyCommon.common
 {
-    internal class StudyService : ServiceBase
+    public class RPCConnectService<T> where T : new()
     {
-        private readonly AppSettings _appSettings;
-        static byte[] buffer = new byte[1024];
-        private static int count = 0;
-        private static IStudyService _iStudyService;
-        private static ILogger _logger;
-        public StudyService()
+        byte[] buffer = new byte[1024];
+        private int count = 0;
+        private T _methodClassName;
+
+        public RPCConnectService()
         {
-            _logger = LogHelp.GetInstance<StudyService>();
-            //_iStudyService = Program._serviceProvider.GetService<IStudyService>();
-            _appSettings = Program._serviceProvider.GetService<AppSettings>();
-            _logger.LogWarning("实例化成功");
+            _methodClassName = new T();
         }
 
-        protected override void OnStart(string[] args)
+
+
+        public bool Run(int RpcServerPort, int Listen)
         {
-            RPCConnectService<StudyServiceImpl> connectService = new RPCConnectService<StudyServiceImpl>();
-            if (connectService.Run(_appSettings.ServiceSettings.RpcServerPort, _appSettings.ServiceSettings.Listen))
+            bool b = false;
+            try
             {
-                _logger.LogInformation("服务启动成功");
+                Socket socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                IPAddress ip = IPAddress.Any;
+                IPEndPoint point = new IPEndPoint(ip, RpcServerPort);
+                socketWatch.Bind(point);
+                socketWatch.Listen(Listen);
+                //socketWatch.Accept();
+                //④开始接受客户端连接请求
+                socketWatch.BeginAccept(new AsyncCallback(ClientAccepted), socketWatch);
+                b = true;
             }
-            else
+            catch (Exception)
             {
-                _logger.LogError("服务启动失败");
+                b = false;
             }
-
-            //Socket socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            //IPAddress ip = IPAddress.Any;
-            //IPEndPoint point = new IPEndPoint(ip, _appSettings.ServiceSettings.RpcServerPort);
-            //socketWatch.Bind(point);
-            //socketWatch.Listen(_appSettings.ServiceSettings.Listen);
-            ////socketWatch.Accept();
-
-            ////④开始接受客户端连接请求
-            //socketWatch.BeginAccept(new AsyncCallback(ClientAccepted), socketWatch);
-
-        }
-
-        protected override void OnStop()
-        {
-
+            return b;
         }
 
         /// <summary>
         /// 客户端连接成功
         /// </summary>
         /// <param name="ar"></param>
-        public static void ClientAccepted(IAsyncResult ar)
+        public void ClientAccepted(IAsyncResult ar)
         {
             #region
             //设置计数器
@@ -85,7 +69,7 @@ namespace Baisse.Study
         /// 接收某一个客户端的消息
         /// </summary>
         /// <param name="ar"></param>
-        public static void ReceiveMessage(IAsyncResult ar)
+        public void ReceiveMessage(IAsyncResult ar)
         {
             int length = 0;
             string message = "";
@@ -99,7 +83,7 @@ namespace Baisse.Study
                 length = socket.EndReceive(ar);
                 //读取出来消息内容
                 message = Encoding.UTF8.GetString(buffer, 0, length);
-                message = plement(message);
+                message = ReflexMethod(message);
                 //输出接收信息
                 WriteLine(clientipe + " ：" + message, ConsoleColor.White);
                 //服务器发送消息
@@ -110,26 +94,22 @@ namespace Baisse.Study
             }
             catch (Exception ex)
             {
-                //设置计数器
-                count--;
-                //断开连接
-                WriteLine(clientipe + " is disconnected，total connects " + (count), ConsoleColor.Red);
             }
         }
-
-        public static void WriteLine(string str, ConsoleColor color)
+        private void WriteLine(string str, ConsoleColor color)
         {
             Console.ForegroundColor = color;
             Console.WriteLine("[{0}] {1}", DateTime.Now.ToString("MM-dd HH:mm:ss"), str);
         }
 
-        public static string plement(string methon)
+        private string ReflexMethod(string methon)
         {
+            if (string.IsNullOrEmpty(methon)) return "";
             RpcServerContext istudy = JsonConvert.DeserializeObject<RpcServerContext>(methon);
-            Type t = _iStudyService.GetType();
+            Type t = _methodClassName.GetType();
             //object obj = Activator.CreateInstance(t, new object[] { _connectionString });//创建一个obj对象
             MethodInfo mi = t.GetMethod(istudy.MethodName);
-            var inc = mi.Invoke(_iStudyService, new object[] { istudy, null });
+            var inc = mi.Invoke(_methodClassName, new object[] { istudy, null });
             return JsonConvert.SerializeObject(inc);
         }
     }
