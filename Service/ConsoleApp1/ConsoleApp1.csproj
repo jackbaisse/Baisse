@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiPageInfo.cs" />
+    <Compile Include="RPC\Lister.cs" />
+    <Compile Include="RPC\AsyncUserToken.cs" />
+    <Compile Include="RPC\BufferManager.cs" />
     <Compile Include="Imessage.cs" />
     <Compile Include="Istudy.cs" />
     <Compile Include="Ostudy.cs" />
@@ -56,6 +59,8 @@
     <Compile Include="RequestContent.cs" />
     <Compile Include="ResponseContent.cs" />
     <Compile Include="RpcServerContext.cs" />
+    <Compile Include="RPC\Server.cs" />
+    <Compile Include="RPC\SocketEventPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

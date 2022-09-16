@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Baisse.Study.BLL;
 using Baisse.Study.Common;
 using Baisse.StudyCommon;
-using Baisse.StudyCommon.common;
 using Baisse.StudyCommon.Input;
 using Baisse.StudyCommon.Output;
+using Baisse.StudyCommon.RPC.RPCModel;
 using Microsoft.Extensions.Logging;
 
 namespace Baisse.Study
@@ -28,7 +28,7 @@ namespace Baisse.Study
 
                 Ostudy ostudy = new Ostudy
                 {
-                    msg = args.name
+                    msg = "adsfasdfasdkjklajsdlfkjasdlkfjalskdjflaskdjflkasjdflkajsdflkjasdlkfjasldkjfalksdjflkasjdflkasjdflkjasdflkjasdlkfjaslkdjfalskdjflaksjdfklajsdflkjasdlfkjasdlkfjaskldjfaklsdjflkasjdflkajsdflkjasdlkfjaslkdjfaklsdjfklasjdflkjsadklfjasdlkfjasldkjflaskdjflkasjdflksajdfkjasdlfkjasdjflaksdjfaskdjflkasjdflkasjdflkjasdlfkjasdklfjaslkdjflkasjdfereresdafasdfasdfasererdfadsfalsdkjflaksdjflkajsdflkjasdlkfjadsfasdfasdkjklajsdlfkjasdlkfjalskdjflaskdjflkasjdflkajsdflkjasdlkfjasldkjfalksdjflkasjdflkasjdflkjasdflkjasdlkfjaslkdjfalskdjflaksjdfklajsdflkjasdlfkjasdlkfjaskldjfaklsdjflkasjdflkajsdflkjasdlkfjaslkdjfaklsdjfklasjdflkjsadklfjasdlkfjasldkjflaskdjflkasjdflksajdfkjasdlfkjasdjflaksdjfaskdjflkasjdflkasjdflkjasdlfkjasdklfjaslkdjflkasjdfereresdafasdfasdfasererdfadsfalsdkjflaksdjflkajsdflkjasdlkfjalskdjflaskjdflkasjdflkajsdflkjasdlkfjaslkdjflaksdjflkajsdflkadsfasdfasdkjklajsdlfkjasdlkfjalskdjflaskdjflkasjdflkajsdflkjasdlkfjasldkjfalksdjflkasjdflkasjdflkjasdflkjasdlkfjaslkdjfalskdjflaksjdfklajsdflkjasdlfkjasdlkfjaskldjfaklsdjflkasjdflkajsdflkjasdlkfjaslkdjfaklsdjfklasjdflkjsadklfjasdlkfjasldkjflaskdjflkasjdflksajdfkjasdlfkjasdjflaksdjfaskdjflkasjdflkasjdflkjasdlfkjasdklfjaslkdjflkasjdfereresdafasdfasdfasererdfadsfalsdkjflaksdjflkajsdflkjasdlkfjalskdjflaskjdflkasjdflkajsdflkjasdlkfjaslkdjflaksdjflkajsdflkjasdlfkjasldkfjaslkdjf00000000adsfasdfasdkjklajsdlfkjasdlkfjalskdjflaskdjflkasjdflkajsdflkjasdlkfjasldkjfalksdjflkasjdflkasjdflkjasdflkjasdlkfjaslkdjfalskdjflaksjdfklajsdflkjasdlfkjasdlkfjaskldjfaklsdjflkasjdflkajsdflkjasdlkfjaslkdjfaklsdjfklasjdflkjsadklfjasdlkfjasldkjflaskdjflkasjdflksajdfkjasdlfkjasdjflaksdjfaskdjflkasjdflkasjdflkjasdlfkjasdklfjaslkdjflkasjdfereresdafasdfasdfasererdfadsfalsdkjflaksdjflkajsdflkjasdlkfjalskdjflaskjdflkasjdflkajsdflkjasdlkfjaslkdjflaksdadsfasdfasdkjklajsdlfkjasdlkfjalskdjflaskdjflkasjdflkajsdflkjasdlkfjasldkjfalksdjflkasjdflkasjdflkjasdflkjasdlkfjaslkdjfalskdjflaksjdfklajsdflkjasdlfkjasdlkfjaskldjfaklsdjflkasjdflkajsdflkjasdlkfjaslkdjfaklsdjfklasjdflkjsadklfjasdlkfjasldkjflaskdjflkasjdflksajdfkjasdlfkjasdjflaksdjfaskdjflkasjdflkasjdflkjasdlfkjasdklfjaslkdjflkasjdfereresdafasdfasdfasererdfadsfalsdkjflaksdjflkajsdflkjasdlkfjalskdjflaskjdflkasjdflkajsdflkjasdlkfjaslkdjflaksdjflkajsdflkjasdlfkjasldkfjaslkdjf00000000jflkajsdflkjasdlfkjasldkfjaslkdjf00000000jasdlfkjasldkfjaslkdjf00000000alskdjflaskjdflkasjdflkajsdflkjasdlkfjaslkdjflaksdjflkajsdflkjasdlfkjasldkfjaslkdjf000000001111111"
                 };
 
                 return ResponseContent.Success(ostudy);
@@ -39,7 +39,7 @@ namespace Baisse.Study
             }
         }
 
-        public async Task<ResponseContent<Ostudy>> Studyss6(RpcServerContext context, Istudy args)
+        public ResponseContent<Ostudy> Studyss6(RpcServerContext context, Istudy args)
         {
             try
             {
@@ -96,6 +96,34 @@ namespace Baisse.Study
             catch (Exception e)
             {
                 return ResponseContent.Fail<Ostudy>(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// 文件上传下载
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public ResponseContent<OFile> FileUpload(RpcServerContext context, IFile args)
+        {
+            try
+            {
+                _logger.LogInformation("Studyss");
+                args = context.GetArgs<IFile>();
+
+                BLL.StudyInfoBLL.FileUpload(args);
+
+                OFile ostudy = new OFile
+                {
+                    FileID = args.FileID
+                };
+
+                return ResponseContent.Success(ostudy);
+            }
+            catch (Exception e)
+            {
+                return ResponseContent.Fail<OFile>(e.Message);
             }
         }
     }

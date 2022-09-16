@@ -19,25 +19,36 @@ namespace ConsoleApp1
         private static Imessage _message;
         static void Main(string[] args)
         {
-            RpcServerContext rpcServer = new RpcServerContext()
-            {
-                LogId = Guid.NewGuid().ToString(),
-                MethodName = "Mcsgd",
-            };
-            Istudy istudy = new Istudy()
-            {
-                Methon = "Istudy",
-                MethonName = "Mcsgd",
-                address = "wxfk",
-                age = "18",
-                id = "1",
-                name = "张三"
-            };
-            rpcServer.Requtst(RequestContent.Request(istudy));
+            ServerClass();
 
-            string ss = JsonConvert.SerializeObject(rpcServer);
+            //RpcServerContext rpcServer = new RpcServerContext()
+            //{
+            //    LogId = Guid.NewGuid().ToString(),
+            //    MethodName = "Mcsgd",
+            //};
+            //Istudy istudy = new Istudy()
+            //{
+            //    Methon = "Istudy",
+            //    MethonName = "Mcsgd",
+            //    address = "wxfk",
+            //    age = "18",
+            //    id = "1",
+            //    name = "张三"
+            //};
+            //rpcServer.Requtst(RequestContent.Request(istudy));
 
-            var cc = JsonConvert.DeserializeObject<RpcServerContext>(ss);
+            //string ss = JsonConvert.SerializeObject(rpcServer);
+
+            //var cc = JsonConvert.DeserializeObject<RpcServerContext>(ss);
+            Console.ReadKey();
         }
+
+        static Server m_socket;
+
+        public static void ServerClass()
+        {
+            Lister lister = new Lister();
+        }
+
     }
 }

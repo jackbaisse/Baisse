@@ -1,7 +1,0 @@
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\bin\Debug\Baisse.BaseDataService.exe.config
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\bin\Debug\Baisse.BaseDataService.exe
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\bin\Debug\Baisse.BaseDataService.pdb
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\obj\Debug\Baisse.BaseDataService.csprojAssemblyReference.cache
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\obj\Debug\Baisse.BaseDataService.csproj.CoreCompileInputs.cache
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\obj\Debug\Baisse.BaseDataService.exe
-D:\11gitRepertory\Baisse\Service\Baisse.BaseDataService\obj\Debug\Baisse.BaseDataService.pdb

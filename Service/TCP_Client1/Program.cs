@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading;
-using Baisse.StudyCommon;
-using Baisse.StudyCommon.common;
 using Baisse.StudyCommon.Input;
-using Newtonsoft.Json;
+using Baisse.StudyCommon.RPC.RPCModel;
 
 namespace TCP_Client1
 {
@@ -33,6 +30,21 @@ namespace TCP_Client1
                     name = "张三"
                 };
                 StudyClass studyClass = new StudyClass();
+
+                string filepath = @"C:\Users\jackbaisse\Desktop\111.txt";
+
+                string text = System.IO.File.ReadAllText(filepath);
+
+                IFile file = new IFile
+                {
+                    FileID = "123",
+                    FileContent = Encoding.UTF8.GetBytes(text),
+                    FileName = Path.GetFileNameWithoutExtension(filepath),
+                    FileSerialNo = "0"
+                };
+
+                var a3 = studyClass.FileUpload(rpcServer, file);
+
 
                 var a = studyClass.Studyss5(rpcServer, istudy);
                 var a1 = studyClass.Studyss1(rpcServer, istudy);

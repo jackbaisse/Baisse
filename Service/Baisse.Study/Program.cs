@@ -20,8 +20,6 @@ namespace Baisse.Study
         static void Main(string[] args)
         {
             InitBuilder();
-
-            Thread.Sleep(20000);
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {

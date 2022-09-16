@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Baisse.StudyCommon.common;
+using Baisse.StudyCommon.RPC.RpcClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -11,150 +12,108 @@ namespace TCP_Client1
 {
     public class RPCClient
     {
-        public byte[] buffer = new byte[1024];
-        public StringBuilder str = new StringBuilder();
+        public RPCClient(string ip, int prot)
+        {
+            SocketError socketError = Request.Connect(ip, prot);
+            if (socketError == SocketError.Success)
+            {
+                Console.WriteLine("已连接到主机 \r\n");
+                Request.OnReceiveData += Request_OnReceiveData;
+                Request.OnServerClosed += Request_OnServerClosed;
+                Request.StartHeartbeat();
+            }
+        }
 
+        public delegate SocketError del();
         /// <summary>
-        /// 同步连接
+        /// server 断开
+        /// </summary>
+        private void Request_OnServerClosed()
+        {
+            Console.WriteLine("server 已断开" + "\r\n");
+            Request.Disconnect();
+
+            //SocketError socketError= Request.TryConnect();
+            //if (socketError == SocketError.Success) 
+            //{
+            //    this.BeginInvoke(new MessageHandle(UpdateRece), "已再次连接到server " + "\r\n");
+            //}
+
+            del del3 = new del(Request.TryConnect);
+
+            IAsyncResult iar2 = del3.BeginInvoke(Connect2Server, del3);
+
+        }
+
+        private void Connect2Server(IAsyncResult ar)
+        {
+
+            Console.WriteLine("已连接服务器");
+
+        }
+        public delegate void MessageHandle(string msg);
+        /// <summary>
+        /// 收到数据
         /// </summary>
         /// <param name="message"></param>
-        /// <returns></returns>
-        public string ConnectService(string message)
+        private void Request_OnReceiveData(byte[] message)
+        {
+            string msg = Encoding.UTF8.GetString(message);
+            Console.WriteLine("request:" + msg);
+            _action.Invoke(msg);
+            autoConnectEvent.Set(); //释放阻塞.  
+            //this.BeginInvoke(new MessageHandle(UpdateRece), msg);
+        }
+
+        static Action<string> _action;
+
+        private AutoResetEvent autoConnectEvent = new AutoResetEvent(false);
+
+        private string Send(string message)
         {
             string result = string.Empty;
-            //①创建一个Socket
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
+            if (string.IsNullOrWhiteSpace(message))
             {
-
-                //②连接到指定服务器的指定端口
-                socket.Connect("127.0.0.1", 5959); //localhost代表本机
-                Console.WriteLine("client:connect to server success!", ConsoleColor.White);
-                var outputBuffer = Encoding.UTF8.GetBytes(message);
-                //发送消息
-                socket.Send(outputBuffer);
-
-                int length = socket.Receive(buffer);  // length 接收字节数组长度
-
-                result = Encoding.UTF8.GetString(buffer, 0, length);
-
-                Console.WriteLine(result);
+                Console.WriteLine("请输入信息");
+                return result;
             }
-            catch (Exception ex)
+            else
             {
-            }
-            finally
-            {
-                socket.Close();
+                bool isSent = Request.Send(message);
+                if (isSent)
+                {
+                    _action = (x) =>
+                    {
+                        result = x;
+                    };
+                    autoConnectEvent.WaitOne();
+
+                    Console.WriteLine("send:" + message + "\r\n");
+                }
             }
             return result;
         }
 
-        public async Task<string> ConnectServiceasync(string message)
-        {
-            string result = string.Empty;
-            //①创建一个Socket
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                //②连接到指定服务器的指定端口
-                socket.Connect("127.0.0.1", 5959); //localhost代表本机
-                Console.WriteLine("client:connect to server success!", ConsoleColor.White);
-                var outputBuffer = Encoding.UTF8.GetBytes(message);
-                //发送消息
-                socket.Send(outputBuffer);
-                int length = socket.Receive(buffer);  // length 接收字节数组长度
-                result = Encoding.UTF8.GetString(buffer, 0, length);
-                Console.WriteLine(result);
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                socket.Close();
-            }
-            return await Task.FromResult(result);
-        }
-
-        public async Task ConnectServiceAsync(string message)
-        {
-            string result = string.Empty;
-            //①创建一个Socket
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                //②连接到指定服务器的指定端口
-                socket.Connect("127.0.0.1", 5959); //localhost代表本机
-
-                //③实现异步接受消息的方法 客户端不断监听消息
-                //socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
-
-                //④接受用户输入，将消息发送给服务器端
-
-
-                ////①创建一个Socket
-                //var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-                ////②连接到指定服务器的指定端口
-                //socket.Connect("127.0.0.1", 5959); //localhost代表本机
-
-                //WriteLine("client:connect to server success!", ConsoleColor.White);
-
-                ////③实现异步接受消息的方法 客户端不断监听消息
-                //socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
-
-                ////④接受用户输入，将消息发送给服务器端
-                //while (true)
-                //{
-                //    var message = Console.ReadLine();
-
-                //    message = messagecept(message);
-                //    var outputBuffer = Encoding.UTF8.GetBytes(message);
-                //    socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
-                //}
-
-
-                var outputBuffer = Encoding.UTF8.GetBytes(message);
-
-                socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
-
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                socket.Close();
-            }
-        }
-
         /// <summary>
-        /// 接收信息
+        /// 
         /// </summary>
-        /// <param name="ar"></param>
-        public void ReceiveMessage(IAsyncResult ar)
+        /// <typeparam name="T">入参</typeparam>
+        /// <typeparam name="F">反参</typeparam>
+        /// <param name="func"></param>
+        public F Send<T, F>(T args)
         {
-            try
+            string data = JsonConvert.SerializeObject(args);
+            string result = string.Empty;
+            bool isSent = Request.Send(data);
+            if (isSent)
             {
-                var socket = ar.AsyncState as Socket;
-
-                //方法参考：http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.endreceive.aspx
-                var length = socket.EndReceive(ar);
-                //读取出来消息内容
-                var message = Encoding.UTF8.GetString(buffer, 0, length);
-                str.Append(message);
-                Console.WriteLine(message);
-                //显示消息
-
-                //接收下一个消息(因为这是一个递归的调用，所以这样就可以一直接收消息了）
-                socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
+                _action = (x) =>
+                {
+                    result = x;
+                };
+                autoConnectEvent.WaitOne();
             }
-            catch (Exception ex)
-            {
-            }
+            return JsonConvert.DeserializeObject<F>(result);
         }
     }
 }

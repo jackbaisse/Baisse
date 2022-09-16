@@ -238,7 +238,7 @@
         "netcoreapp3.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Users\\jackbaisse\\.nuget\\packages": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
