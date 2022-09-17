@@ -1242,8 +1242,8 @@
     },
     "Baisse.StudyCommon/1.0.0": {
       "type": "project",
-      "path": "../Baisse.StudyCommon/Baisse.StudyCommon.csproj",
-      "msbuildProject": "../Baisse.StudyCommon/Baisse.StudyCommon.csproj"
+      "path": "../../Service-Common/Baisse.StudyCommon/Baisse.StudyCommon.csproj",
+      "msbuildProject": "../../Service-Common/Baisse.StudyCommon/Baisse.StudyCommon.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1285,8 +1285,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
-              "projectPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj"
+            "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
+              "projectPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj"
             }
           }
         }

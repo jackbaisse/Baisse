@@ -1,9 +1,0 @@
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\bin\Debug\netcoreapp3.1\Baisse.StudyCommon.deps.json
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\bin\Debug\netcoreapp3.1\Baisse.StudyCommon.dll
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\bin\Debug\netcoreapp3.1\Baisse.StudyCommon.pdb
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.csprojAssemblyReference.cache
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.AssemblyInfoInputs.cache
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.AssemblyInfo.cs
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.csproj.CoreCompileInputs.cache
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.dll
-D:\11gitRepertory\Baisse\Service\Baisse.StudyCommon\obj\Debug\netcoreapp3.1\Baisse.StudyCommon.pdb

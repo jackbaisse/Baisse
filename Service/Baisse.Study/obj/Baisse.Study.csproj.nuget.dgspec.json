@@ -4,14 +4,14 @@
     "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\Baisse.Study.csproj": {}
   },
   "projects": {
-    "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
+    "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
+        "projectUniqueName": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
         "projectName": "Baisse.StudyCommon",
-        "projectPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
+        "projectPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
         "packagesPath": "C:\\Users\\jackbaisse\\.nuget\\packages\\",
-        "outputPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\obj\\",
+        "outputPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jackbaisse\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +89,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
-                "projectPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj"
+              "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
+                "projectPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj"
               }
             }
           }
