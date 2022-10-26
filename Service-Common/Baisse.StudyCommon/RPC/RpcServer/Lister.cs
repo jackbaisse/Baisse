@@ -40,7 +40,7 @@ namespace Baisse.StudyCommon.RPC.RpcServer
                     m_socket.ReceiveClientData += m_socket_ReceiveClientData;
                 }
             }
-            catch (Exception e)
+            catch 
             {
                 return false;
             }

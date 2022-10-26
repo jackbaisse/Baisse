@@ -63,7 +63,7 @@ namespace ConsoleAppClient
         /// <returns>0.连接成功, 其他值失败,参考SocketError的值列表</returns>  
         internal SocketError Connect()
         {
-            SocketError socketError = SocketError.ConnectionRefused;
+            //SocketError socketError = SocketError.ConnectionRefused;
 
 
             SocketAsyncEventArgs connectArgs = new SocketAsyncEventArgs();

@@ -1,0 +1,224 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\Baisse.Study.csproj": {}
+  },
+  "projects": {
+    "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\Baisse.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\Baisse.Model.csproj",
+        "projectName": "Baisse.Model",
+        "projectPath": "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\Baisse.Model.csproj",
+        "packagesPath": "C:\\Users\\jackbaisse\\.nuget\\packages\\",
+        "outputPath": "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jackbaisse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Users\\jackbaisse\\.nuget\\packages": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.29, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
+        "projectName": "Baisse.StudyCommon",
+        "projectPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj",
+        "packagesPath": "C:\\Users\\jackbaisse\\.nuget\\packages\\",
+        "outputPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jackbaisse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Users\\jackbaisse\\.nuget\\packages": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\Baisse.Model.csproj": {
+                "projectPath": "D:\\11gitRepertory\\Baisse\\Common\\Baisse.ModelResult\\Baisse.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\Baisse.Study.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\Baisse.Study.csproj",
+        "projectName": "Baisse.Study",
+        "projectPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\Baisse.Study.csproj",
+        "packagesPath": "C:\\Users\\jackbaisse\\.nuget\\packages\\",
+        "outputPath": "D:\\11gitRepertory\\Baisse\\Service\\Baisse.Study\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jackbaisse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Users\\jackbaisse\\.nuget\\packages": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj": {
+                "projectPath": "D:\\11gitRepertory\\Baisse\\Service-Common\\Baisse.StudyCommon\\Baisse.StudyCommon.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            },
+            "System.ServiceProcess.ServiceController": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

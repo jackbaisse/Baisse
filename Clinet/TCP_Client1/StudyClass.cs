@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
+using Baisse.Model.Models.RPCModel;
 using Baisse.StudyCommon;
 using Baisse.StudyCommon.Input;
 using Baisse.StudyCommon.Output;
-using Baisse.StudyCommon.RPC.RPCModel;
 using Newtonsoft.Json;
 
 namespace TCP_Client1
@@ -13,46 +11,46 @@ namespace TCP_Client1
     public class StudyClass : IStudyService
     {
         private RPCClient RPCConnect = new RPCClient("127.0.0.1", 5959);
-
-        public ResponseContent<OFile> FileDownload(RpcServerContext context, IFile args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResponseContent<OFile> FileUpload(RpcServerContext context, IFile args)
+        public ResponseContent<OFileDownload> FileDownload(RpcServerContext context, IFileDownload args)
         {
             context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            return RPCConnect.Send<RpcServerContext, ResponseContent<OFile>>(context);
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OFileDownload>>(context);
         }
 
-        public ResponseContent<Ostudy> Studyss1(RpcServerContext context, Istudy args)
+        public ResponseContent<OFileUpload> FileUpload(RpcServerContext context, IFileUpload args)
         {
             context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            return RPCConnect.Send<RpcServerContext, ResponseContent<Ostudy>>(context);
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OFileUpload>>(context);
         }
 
-        public ResponseContent<Ostudy> Studyss2(RpcServerContext context, Istudy args)
+        public ResponseContent<OSeeFile> SeeFile(RpcServerContext context, ISeeFile args)
         {
             context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            return RPCConnect.Send<RpcServerContext, ResponseContent<Ostudy>>(context);
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OSeeFile>>(context);
         }
 
-        public ResponseContent<Ostudy> Studyss5(RpcServerContext context, Istudy args)
+        public ResponseContent<OSeeServicesInfo> SeeServicesInfo(RpcServerContext context, ISeeServicesInfo args)
         {
             context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            return RPCConnect.Send<RpcServerContext, ResponseContent<Ostudy>>(context);
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OSeeServicesInfo>>(context);
         }
 
-
-        public ResponseContent<Ostudy> Studyss6(RpcServerContext context, Istudy args)
+        public ResponseContent<OStartOrStopWindowsService> StartOrStopWindowsService(RpcServerContext context, IStartOrStopWindowsService args)
         {
             context.RequestData = JsonConvert.SerializeObject(args);
             context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-            return RPCConnect.Send<RpcServerContext, ResponseContent<Ostudy>>(context);
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OStartOrStopWindowsService>>(context);
+        }
+
+        public ResponseContent<OUpdateFile> UpdateFile(RpcServerContext context, IUpdateFile args)
+        {
+            context.RequestData = JsonConvert.SerializeObject(args);
+            context.MethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            return RPCConnect.Send<RpcServerContext, ResponseContent<OUpdateFile>>(context);
         }
     }
 }

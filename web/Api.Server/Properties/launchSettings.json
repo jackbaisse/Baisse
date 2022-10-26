@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Api.Server": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger"
+    }
+  }
+}

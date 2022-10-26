@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using Baisse.Model.Models.RPCModel;
 using Baisse.StudyCommon.Input;
-using Baisse.StudyCommon.RPC.RPCModel;
+using Baisse.StudyCommon.Output;
 
 namespace TCP_Client1
 {
@@ -16,57 +17,92 @@ namespace TCP_Client1
             try
             {
 
-                RpcServerContext rpcServer = new RpcServerContext()
-                {
-                    LogId = Guid.NewGuid().ToString(),
-                };
-                Istudy istudy = new Istudy()
-                {
-                    Methon = "Istudy",
-                    MethonName = "Mcsgd",
-                    address = "wxfk",
-                    age = "18",
-                    id = "1",
-                    name = "张三"
-                };
-                StudyClass studyClass = new StudyClass();
+                //RpcServerContext rpcServer = new RpcServerContext()
+                //{
+                //    LogId = Guid.NewGuid().ToString(),
+                //};
+                //Istudy istudy = new Istudy()
+                //{
+                //    Methon = "Istudy",
+                //    MethonName = "Mcsgd",
+                //    address = "wxfk",
+                //    age = "18",
+                //    id = "1",
+                //    name = "张三"
+                //};
+                //StudyClass studyClass = new StudyClass();
 
-                string filepath = @"C:\Users\jackbaisse\Desktop\222.txt";
+                //string filepath = @"C:\Users\jackbaisse\Desktop\9999_222.txt";
 
-                //文件分块传输
-                int length = 0;
-                byte[] buff = new byte[1024 * 1024];
-                int i = 0;
-                using (FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read))
-                {
-                    using (BinaryReader br = new BinaryReader(fileStream))
-                    {
-                        while ((length = fileStream.Read(buff, 0, buff.Length)) > 0)
-                        {
+                //#region 文件下载
+                //IFile filey = new IFile
+                //{
+                //    FileID = "0934",
+                //    FileName = Path.GetFileName(filepath),
+                //};
 
-                            //using (FileStream stream = new FileStream(@"C:\Users\jackbaisse\Desktop\333.txt", FileMode.Append, FileAccess.Write))
-                            //{
-                            //    stream.Write(buff, 0, length);
-                            //}
+                //var y = studyClass.FileDownload(rpcServer, filey);
 
-                            IFile file = new IFile
-                            {
-                                FileID = "9999",
-                                FileContent = buff,
-                                FileName = Path.GetFileName(filepath),
-                                FileLength = length.ToString(),
-                                FileSerialNo = i.ToString()
-                            };
-                            var a3 = studyClass.FileUpload(rpcServer, file);
-                            i++;
-                        }
-                    }
-                }
+                //if (y.Success)
+                //{
+                //    OFile oFile = y.Data;
+                //    string pathName = AppDomain.CurrentDomain.BaseDirectory + "FileDownload\\" + filey.FileID + filey.FileName;
+
+                //    using (FileStream stream = new FileStream(pathName, FileMode.OpenOrCreate, FileAccess.Write))
+                //    {
+                //        stream.Write(oFile.Content);
+                //    }
+                //}
+                //#endregion
 
 
-                var a = studyClass.Studyss5(rpcServer, istudy);
-                var a1 = studyClass.Studyss1(rpcServer, istudy);
-                var a2 = studyClass.Studyss2(rpcServer, istudy);
+                //string text = System.IO.File.ReadAllText(filepath);
+
+                //byte[] endy = Encoding.UTF8.GetBytes(text);
+
+                //IFile file3 = new IFile
+                //{
+                //    FileID = "0934",
+                //    FileContent = endy,
+                //    FileName = Path.GetFileName(filepath),
+                //    FileLength = endy.ToString(),
+                //    FileSerialNo = ""
+                //};
+
+                //var a5 = studyClass.FileUpload(rpcServer, file3);
+
+                //#region 文件上传
+                ////文件分块传输
+                //int length = 0;
+                //byte[] buff = new byte[1024 * 1024];
+                //int i = 0;
+                //using (FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read))
+                //{
+                //    using (BinaryReader br = new BinaryReader(fileStream))
+                //    {
+                //        while ((length = fileStream.Read(buff, 0, buff.Length)) > 0)
+                //        {
+                //            IFile file = new IFile
+                //            {
+                //                FileID = "0934",
+                //                FileContent = buff,
+                //                FileName = Path.GetFileName(filepath),
+                //                FileLength = length.ToString(),
+                //                FileSerialNo = i.ToString()
+                //            };
+                //            var a3 = studyClass.FileUpload(rpcServer, file);
+                //            i++;
+                //        }
+                //    }
+                //}
+                //#endregion
+
+
+
+
+                //var a = studyClass.Studyss5(rpcServer, istudy);
+                //var a1 = studyClass.Studyss1(rpcServer, istudy);
+                //var a2 = studyClass.Studyss2(rpcServer, istudy);
 
                 //var b = studyClass.Studyss6(rpcServer, istudy);
 

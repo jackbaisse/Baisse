@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="RPC\RPCModel\**" />
+    <EmbeddedResource Remove="RPC\RPCModel\**" />
+    <None Remove="RPC\RPCModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="common\RPCConnectClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="common\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Baisse.ModelResult\Baisse.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -20,7 +20,7 @@ namespace TCP_Client1
                 Console.WriteLine("已连接到主机 \r\n");
                 Request.OnReceiveData += Request_OnReceiveData;
                 Request.OnServerClosed += Request_OnServerClosed;
-                Request.StartHeartbeat();
+                //Request.StartHeartbeat();//心跳检测
             }
         }
 

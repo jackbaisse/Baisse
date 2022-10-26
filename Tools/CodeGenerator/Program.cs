@@ -1,38 +1,39 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace CodeGenerator
 {
     class Program
     {
-        static string _path = AppDomain.CurrentDomain.BaseDirectory + "CodeModel";
-        static string _copypath = AppDomain.CurrentDomain.BaseDirectory + "CopyModel";
-
-        static string _spacename = "Study";
-        static string _copyspacename = "Filenamesj";
-
-        //static StringBuilder sbpath = new StringBuilder();
+        static string _filePath = AppDomain.CurrentDomain.BaseDirectory + "CodeModel";
+        static string _copyFilePath = AppDomain.CurrentDomain.BaseDirectory + "CopyModel";
+        static string _nameSpace = "Study";
+        static string _copyNameSpace = "Filenamesj";
 
         static void Main(string[] args)
         {
-            //sbpath.Append(copypath);
-            FileDirectoryInfo(_path, _copypath);
+            //获取配置文件
+            var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var settings = builder.GetSection("AppSettings").Get<AppSettings>();
 
-            //DirectoryInfo root = new DirectoryInfo(path);
-            //DirectoryInfo[] dics = root.GetDirectories();
+            if (settings != null)
+            {
+                //_nameSpace = settings.ServiceSettings.NameSpace;
+                //_copyNameSpace = settings.ServiceSettings.CopyNameSpace;
+                _filePath = settings.ServiceSettings.FilePath;
+                _copyFilePath = settings.ServiceSettings.CopyFilePath;
+            }
 
-            //foreach (DirectoryInfo item in dics)
-            //{
-            //    DirectoryInfo[] infos = item.GetDirectories();
-            //    foreach (DirectoryInfo item1 in infos)
-            //    {
-            //        var a = item1.GetDirectories();
-            //        var b = item1.GetFiles();
-            //    }
-            //}
+            FileDirectoryInfo(_filePath, _copyFilePath);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path">文件路径</param>
+        /// <param name="copypath">复制后的路径</param>
         static void FileDirectoryInfo(string path, string copypath)
         {
             DirectoryInfo root = new DirectoryInfo(path);
@@ -42,12 +43,11 @@ namespace CodeGenerator
 
             foreach (var fileInfo in file)
             {
-
                 string files = fileInfo.Name;
-                if (files.Contains(_spacename))
-                {
-                    files = files.Replace(_spacename, _copyspacename);
-                }
+                //if (files.Contains(_nameSpace))
+                //{
+                //    files = files.Replace(_nameSpace, _copyNameSpace);
+                //}
                 string pathname = Path.Combine(copypath, files);
 
                 switch (Path.GetExtension(fileInfo.FullName))
@@ -63,7 +63,6 @@ namespace CodeGenerator
                         break;
                 }
             }
-
 
             //获取路径文件夹
             var dics = root.GetDirectories();
@@ -83,10 +82,10 @@ namespace CodeGenerator
 
                 ///替换文件名
                 string files = item.Name;
-                if (item.Name.Contains(files))
-                {
-                    files = files.Replace(_spacename, _copyspacename);
-                }
+                //if (item.Name.Contains(files))
+                //{
+                //    files = files.Replace(_nameSpace, _copyNameSpace);
+                //}
                 string direcpath = Path.Combine(copypath, files);
 
                 //创建文件夹
@@ -134,10 +133,10 @@ namespace CodeGenerator
 
             string fileStream = File.ReadAllText(filepath);
 
-            if (fileStream.Contains(_spacename))
-            {
-                fileStream = fileStream.Replace(_spacename, _copyspacename);
-            }
+            //if (fileStream.Contains(_nameSpace))
+            //{
+            //    fileStream = fileStream.Replace(_nameSpace, _copyNameSpace);
+            //}
             var buffcs = Encoding.UTF8.GetBytes(fileStream);
             using (FileStream stream = new FileStream(writepath, FileMode.OpenOrCreate, FileAccess.Write))
             {

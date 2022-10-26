@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api.Server</name>
+    </assembly>
+    <members>
+        <member name="T:HDF.Blog.WebApi.Controllers.AuthorizationController">
+            <summary>
+            身份验证控制器
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Controllers.AuthorizationController.UserLogin(System.String,System.String)">
+            <summary>
+            用户登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.ApiVersioningExtension">
+            <summary>
+            API版本控制拓展
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.ApiVersioningExtension.AddApiVersioningService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置ApiVersioning service
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.AuthenticationExtension">
+            <summary>
+            API身份验证
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.AuthenticationExtension.AddAuthenticationService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Baisse.Model.Models.AppsettingModel.TokenConfig)">
+            <summary>
+            配置Authentication service
+            </summary>
+            <param name="services"></param>
+            <param name="config"></param>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.CorsExtension">
+            <summary>
+            API跨域拓展
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.CorsExtension.AddCorsService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Baisse.Model.Models.AppsettingModel.CorsConfig)">
+            <summary>
+            配置跨域 services
+            </summary>
+            <param name="services"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.CorsExtension.UserCorsMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Baisse.Model.Models.AppsettingModel.CorsConfig)">
+            <summary>
+            配置跨域
+            </summary>
+            <param name="app"></param>
+            <param name="config"></param>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.DbContextExtension">
+            <summary>
+            数据库拓展
+            </summary>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.NewtonsoftJsonExtension">
+            <summary>
+            API版本控制拓展
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.NewtonsoftJsonExtension.AddNewtonsoftJsonService(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            配置Json序列化规则
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.SpaExtension">
+            <summary>
+            SPA拓展
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.SpaExtension.UseSpaMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Baisse.Model.Models.AppsettingModel.SpaConfig)">
+            <summary>
+            使用SPA中间件
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.SpaExtension.AddSpaService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Baisse.Model.Models.AppsettingModel.SpaConfig)">
+            <summary>
+            配置SPA service
+            </summary>
+            <param name="services"></param>
+            <param name="config"></param>
+        </member>
+        <member name="T:HDF.Blog.WebApi.Extensions.SwaggerExtension">
+            <summary>
+            Swagger接口文档拓展
+            </summary>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.SwaggerExtension.UseSwaggerMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            使用swagger中间件
+            </summary>
+            <param name="app"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Extensions.SwaggerExtension.AddSwaggerService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置swagger service
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:HDF.Blog.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置服务
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.FileUpload(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            文件上传
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.FileDownload(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.UpdateFile(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            更新文件
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.SeeFile(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            查看文件
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.SeeServicesInfo(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            查看服务配置信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Controllers.FileController.StartOrStopWindowsService(Baisse.Model.Models.ApiModel.ApiRequest)">
+            <summary>
+            启动或关闭服务
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Server.Rpc.RPCClient.Request_OnServerClosed">
+            <summary>
+            server 断开
+            </summary>
+        </member>
+        <member name="M:Api.Server.Rpc.RPCClient.Request_OnReceiveData(System.Byte[])">
+            <summary>
+            收到数据
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Api.Server.Rpc.RPCClient.Send``2(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">入参</typeparam>
+            <typeparam name="F">反参</typeparam>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>
